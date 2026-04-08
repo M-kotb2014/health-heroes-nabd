@@ -31,11 +31,12 @@
 
 <body class="p-4 md:p-8">
 
+    <!-- 🔐 Login -->
     <div id="loginOverlay"
         class="fixed inset-0 z-[200] bg-slate-900/95 backdrop-blur-md flex items-center justify-center p-4">
 
         <div class="bg-white p-8 rounded-3xl w-full max-w-md text-center">
-            <h2 class="text-2xl font-black mb-4">دخول الإدارة 🔐</h2>
+            <h2 class="text-2xl font-black mb-4">دخول الإدارة</h2>
 
             <input type="password" id="adminPass" placeholder="••••••"
                 class="w-full p-4 rounded-xl bg-gray-100 text-center mb-4 outline-none">
@@ -48,6 +49,7 @@
         </div>
     </div>
 
+    <!-- 🧠 Admin Content -->
     <div id="adminContent" class="hidden max-w-5xl mx-auto">
 
         <div class="flex justify-between items-center mb-8">
@@ -58,6 +60,7 @@
             </button>
         </div>
 
+        <!-- Stats -->
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
 
             <div class="bg-white p-4 rounded-xl text-center">
@@ -77,10 +80,12 @@
 
         </div>
 
+        <!-- Services -->
         <div id="adminGrid" class="grid gap-4"></div>
 
     </div>
 
+    <!-- 📦 Popup -->
     <div id="detailsModal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-50 p-4">
 
         <div class="bg-white w-full max-w-lg rounded-3xl p-6 relative">
@@ -99,6 +104,7 @@
         const ADMIN_PASSWORD = "123";
         let services = JSON.parse(localStorage.getItem("sahaty_v3")) || [];
 
+        // initialize fields
         services = services.map(s => ({
             ...s,
             approved: s.approved || false,
