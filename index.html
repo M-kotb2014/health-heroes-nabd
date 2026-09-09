@@ -144,7 +144,6 @@
         }
 
         @media (max-width: 768px) {
-
             h1 {
                 font-size: 1.8rem !important;
                 line-height: 1.4 !important;
@@ -195,9 +194,7 @@
             }
         }
 
-
         @media (min-width: 769px) and (max-width: 1024px) {
-
             #cardsGrid {
                 grid-template-columns: repeat(2, 1fr) !important;
                 gap: 1.5rem;
@@ -227,60 +224,11 @@
 </head>
 
 <body class="overflow-x-hidden">
-    <div id="welcomePopup"
-        class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[999] flex items-center justify-center p-4">
 
-        <div class="bg-white max-w-lg w-full rounded-[2rem] p-8 text-center shadow-2xl">
-
-            <div class="text-5xl mb-4">👋</div>
-
-            <h2 class="text-2xl md:text-3xl font-black text-slate-800 mb-4">
-                مرحبًا بك في نبض
-            </h2>
-
-            <p class="text-slate-600 leading-8 text-base md:text-lg mb-6">
-                نعتذر لأن نظام الـ Back-end لم يكتمل بالكامل حتى الآن، لذلك قد توجد بعض الوظائف التي لا تعمل بصورة
-                نهائية في النسخة الحالية.
-                <br><br>
-                يمكنك تجربة الموقع واستكشاف جميع الصفحات والخصائص المتاحة.
-            </p>
-
-            <div class="bg-blue-50 border border-blue-100 rounded-2xl p-4 mb-6">
-                <p class="text-slate-700 font-bold mb-2">لوحة الإدارة متوفرة للتجربة</p>
-
-                <div class="text-blue-600 text-3xl font-black tracking-widest mb-2">
-                    123
-                </div>
-
-                <p class="text-xs text-slate-500">
-                    كلمة المرور للتجربة فقط وليست للاستخدام النهائي.
-                </p>
-            </div>
-
-            <button onclick="closeWelcomePopup()"
-                class="green-btn text-white px-8 py-3 rounded-2xl font-bold shadow-lg">
-                دخول الموقع
-            </button>
-
-        </div>
-    </div>
-
-    <script>
-        function closeWelcomePopup() {
-            document.getElementById("welcomePopup").style.display = "none";
-        }
-
-        window.addEventListener("load", function () {
-            document.getElementById("welcomePopup").style.display = "flex";
-        });
-    </script>
+    <!-- الهيدر والقائمة العلويّة -->
     <nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-lg border-b bg-white/80 border-[var(--border-color)]">
-
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-
-            <button onclick="toggleMenu()" class="lg:hidden text-3xl text-slate-700">
-                ☰
-            </button>
+            <button onclick="toggleMenu()" class="lg:hidden text-3xl text-slate-700">☰</button>
 
             <div class="flex items-center gap-3 cursor-pointer" onclick="showPage('home')">
                 <span class="text-xl font-extrabold tracking-tight">
@@ -297,71 +245,50 @@
             </div>
 
             <div class="hidden lg:flex items-center gap-4">
-
-                <a href="admin.html" class="green-btn text-white px-6 py-2 rounded-2xl font-bold shadow-lg">
-                    ⚙️ لوحة الإدارة
-                </a>
-
-                <button onclick="toggleChat()" class="green-btn text-white px-6 py-2 rounded-2xl font-bold shadow-lg">
-                    جرب المساعد
-                </button>
-
-                <button onclick="openModal()" class="green-btn text-white px-6 py-2 rounded-2xl font-bold shadow-lg">
-                    + إضافة خدمة
-                </button>
-
+                <a href="admin.html" class="green-btn text-white px-6 py-2 rounded-2xl font-bold shadow-lg">⚙️ لوحة
+                    الإدارة</a>
+                <button onclick="toggleChat()"
+                    class="green-btn text-white px-6 py-2 rounded-2xl font-bold shadow-lg">جرب المساعد</button>
+                <button onclick="openModal()" class="green-btn text-white px-6 py-2 rounded-2xl font-bold shadow-lg">+
+                    إضافة خدمة</button>
             </div>
-
         </div>
     </nav>
 
-
+    <!-- القائمة الجانبية في الشاشات الصغيرة -->
     <div id="menuOverlay" onclick="toggleMenu()" class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden"></div>
-
-    <div id="sideMenu" class="fixed top-0 right-0 h-full w-[270px] bg-white z-50 
-     transform translate-x-full transition-transform duration-300 
-     shadow-2xl p-6 flex flex-col gap-4 
-     overflow-y-auto lg:hidden">
-
+    <div id="sideMenu"
+        class="fixed top-0 right-0 h-full w-[270px] bg-white z-50 transform translate-x-full transition-transform duration-300 shadow-2xl p-6 flex flex-col gap-4 overflow-y-auto lg:hidden">
         <div class="flex justify-between items-center mb-6">
             <span class="text-xl font-bold">القائمة</span>
             <button onclick="toggleMenu()" class="text-2xl">✕</button>
         </div>
-
         <div class="flex flex-col gap-4 text-right">
-
             <button onclick="showPage('home'); toggleMenu()" class="nav-link"> الرئيسية</button>
             <button onclick="showPage('lab'); toggleMenu()" class="nav-link"> المختبر الذكي</button>
             <button onclick="showPage('doctor'); toggleMenu()" class="nav-link"> ابحث علي طبيبك</button>
             <button onclick="showPage('dashboard'); toggleMenu()" class="nav-link"> لوحة التحكم</button>
             <button onclick="showPage('roadmap'); toggleMenu()" class="nav-link"> خريطة الطريق</button>
-
             <hr class="my-4">
-
-            <button onclick="toggleChat(); toggleMenu()" class="green-btn text-white py-3 rounded-xl font-bold">
-                جرب المساعد
-            </button>
-
-            <button onclick="openModal(); toggleMenu()" class="green-btn text-white py-3 rounded-xl font-bold">
-                + إضافة خدمة
-            </button>
-
-            <a href="admin.html" class="green-btn text-white text-center py-3 rounded-xl font-bold">
-                ⚙️ لوحة الإدارة
-            </a>
-
+            <button onclick="toggleChat(); toggleMenu()" class="green-btn text-white py-3 rounded-xl font-bold">جرب
+                المساعد</button>
+            <button onclick="openModal(); toggleMenu()" class="green-btn text-white py-3 rounded-xl font-bold">+ إضافة
+                خدمة</button>
+            <a href="admin.html" class="green-btn text-white text-center py-3 rounded-xl font-bold">⚙️ لوحة الإدارة</a>
         </div>
     </div>
 
-    <main class="pt-24 mt-[17%] lg:mt-[0]">
+    <!-- المحتوى الرئيسي -->
+    <main class="pt-24 lg:pt-28">
+        <!-- قسم الرئيسية -->
         <section id="home" class="page-section active container mx-auto px-6 py-12 text-center">
             <div class="max-w-4xl mx-auto">
-                <h1 class="text-5xl md:text-7xl font-black mb-8 leading-tight text-slate-900">مساعدك الطبي الذكي
-                    <br><br><span class="text-blue-600 text-4xl md:text-6xl">أصبح حقيقة.</span>
+                <h1 class="text-5xl md:text-7xl font-black mb-8 leading-tight text-slate-900">
+                    مساعدك الطبي الذكي<br><br><span class="text-blue-600 text-4xl md:text-6xl">أصبح حقيقة.</span>
                 </h1>
-                <p class="text-lg text-slate-500 mb-10 leading-relaxed max-w-2xl mx-auto">نستخدم تقنيات الذكاء الاصطناعي
-                    لفهم
-                    تقاريرك الطبية وتقديم شرح مبسط لأعراضك.</p>
+                <p class="text-lg text-slate-500 mb-10 leading-relaxed max-w-2xl mx-auto">
+                    نستخدم تقنيات الذكاء الاصطناعي لفهم تقاريرك الطبية وتقديم شرح مبسط لأعراضك.
+                </p>
                 <div class="flex flex-col md:flex-row justify-center gap-4">
                     <button onclick="showPage('lab')"
                         class="bg-blue-600 text-white px-10 py-4 rounded-2xl font-bold hover:bg-blue-700 shadow-xl shadow-blue-500/20 transition">ابدأ
@@ -373,8 +300,8 @@
             </div>
         </section>
 
-        <section id="doctor" class="page-section  container mx-auto px-6 py-12">
-
+        <!-- قسم البحث عن الطبيب -->
+        <section id="doctor" class="page-section container mx-auto px-6 py-12">
             <section class="py-16 px-6 text-center">
                 <h2 class="text-4xl md:text-5xl font-black mb-8 leading-tight">
                     ابحث عن <span class="text-[#2563eb]">رعايتك</span> بذكاء
@@ -393,13 +320,11 @@
                     💡 نقترح عليك تخصص: <span id="suggestedSpec"></span>
                 </div>
             </section>
-
             <main id="cardsGrid" class="max-w-7xl mx-auto p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             </main>
-
         </section>
 
-
+        <!-- قسم المختبر الذكي -->
         <section id="lab" class="page-section container mx-auto px-6 py-12">
             <div class="max-w-3xl mx-auto">
                 <h2 class="text-3xl font-black mb-6 text-slate-900">المختبر الذكي</h2>
@@ -421,6 +346,7 @@
             </div>
         </section>
 
+        <!-- قسم لوحة المتابعة -->
         <section id="dashboard" class="page-section container mx-auto px-6 py-12">
             <h2 class="text-3xl font-black mb-8 text-slate-900">لوحة المتابعة</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -436,47 +362,55 @@
                     <p class="text-slate-400 text-xs font-bold mb-1 italic">الحالة العامة</p>
                     <div class="text-2xl font-bold text-green-600">جيدة جداً</div>
                 </div>
-                <div class="stat-card p-6">
-                    <p class="text-slate-400 text-xs font-bold mb-1 italic">التنبيهات</p>
-                    <div class="text-2xl font-bold text-orange-500">لا يوجد</div>
+                <div class="stat-card p-6 col-span-1 md:col-span-2 lg:col-span-4">
+                    <div class="flex justify-between items-center mb-4">
+                        <p class="text-slate-400 text-xs font-bold italic">التنبيهات والتشخيصات المتابعة</p>
+                        <span id="alert-count-badge"
+                            class="bg-orange-500 text-white text-xs px-2 py-0.5 rounded-full font-bold">0</span>
+                    </div>
+                    <div id="alerts-list" class="space-y-3">
+                        <p id="no-alerts-msg" class="text-slate-400 text-sm">لا يوجد تنبيهات حالياً</p>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- قسم خريطة الطريق -->
         <section id="roadmap" class="page-section container mx-auto px-6 py-12 max-w-2xl">
             <h2 class="text-3xl font-black text-center mb-12 text-slate-900">خريطة الطريق</h2>
             <div class="space-y-8 border-r-2 border-blue-100 pr-6">
                 <div class="relative">
                     <div class="absolute -right-[33px] top-1 w-4 h-4 bg-blue-600 rounded-full ring-4 ring-blue-50">
                     </div>
-                    <h3 class="font-bold text-lg text-slate-800">النصف الأول: إطلاق النسخة التجريبية</h3>
+                    <h3 class="font-bold text-lg text-slate-800">الثلث الاول: إطلاق النسخة التجريبية</h3>
                     <p class="text-slate-500 text-sm">محرك فهم الأعراض الأساسي باللغة العربية.</p>
+                </div>
+                <div class="relative opacity-70">
+                    <div class="absolute -right-[33px] top-1 w-4 h-4 bg-slate-300 rounded-full"></div>
+                    <h3 class="font-bold text-lg text-slate-800">الثلث الثاني: التكامل مع الساعات الذكية</h3>
+                    <p class="text-slate-500 text-sm">ربط البيانات الحيوية مباشرة لتحليل أعمق.</p>
                 </div>
                 <div class="relative opacity-50">
                     <div class="absolute -right-[33px] top-1 w-4 h-4 bg-slate-300 rounded-full"></div>
-                    <h3 class="font-bold text-lg text-slate-800">النصف الثاني: التكامل مع الساعات الذكية</h3>
-                    <p class="text-slate-500 text-sm">ربط البيانات الحيوية مباشرة لتحليل أعمق.</p>
+                    <h3 class="font-bold text-lg text-slate-800">الثلث الثالث: التطويرات</h3>
+                    <p class="text-slate-500 text-sm">إضافة البيوماتريك ديتكشن مع مراعاة أجزاء الجسم.</p>
                 </div>
             </div>
         </section>
     </main>
 
-
+    <!-- نافذة إضافة خدمة -->
     <div id="addModal"
         class="fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <form onsubmit="saveNewService(event)"
-            class="bg-white w-full max-w-xl rounded-[3.5rem] p-10 relative animate-in zoom-in duration-300 shadow-2xl overflow-y-auto max-h-[90vh] no-scrollbar">
-            <button type="button" onclick="closeModal()" class="absolute top-8 left-8 text-2xl text-gray-400">
-                ✕
-            </button>
-            <h2 class="text-3xl font-black mb-8 text-slate-800">
-                نشر خدمتك الطبية 🚀
-            </h2>
+            class="bg-white w-full max-w-xl rounded-[3.5rem] p-10 relative animate-in zoom-in duration-300 shadow-2xl overflow-y-auto max-h-[90vh]">
+            <button type="button" onclick="closeModal()" class="absolute top-8 left-8 text-2xl text-gray-400">✕</button>
+            <h2 class="text-3xl font-black mb-8 text-slate-800">نشر خدمتك الطبية 🚀</h2>
             <div class="space-y-5">
-                <input name="name" required placeholder="الاسم الكامل" class="w-full p-4 rounded-2xl bg-gray-50 border-none 
-                    ring-1 ring-gray-100 focus:ring-2 focus:ring-[#00C853] outline-none" />
-                <input name="address" required placeholder="العنوان" class="w-full p-4 rounded-2xl bg-gray-50 border-none 
-                    ring-1 ring-gray-100 focus:ring-2 focus:ring-[#00C853] outline-none" />
+                <input name="name" required placeholder="الاسم الكامل"
+                    class="w-full p-4 rounded-2xl bg-gray-50 border-none ring-1 ring-gray-100 focus:ring-2 focus:ring-[#00C853] outline-none" />
+                <input name="address" required placeholder="العنوان"
+                    class="w-full p-4 rounded-2xl bg-gray-50 border-none ring-1 ring-gray-100 focus:ring-2 focus:ring-[#00C853] outline-none" />
                 <div class="grid grid-cols-2 gap-4">
                     <select name="type" class="p-4 rounded-2xl bg-gray-50 outline-none ring-1 ring-gray-100">
                         <option>طبيب</option>
@@ -497,14 +431,10 @@
                 <div
                     class="w-full bg-yellow-50 border-r-4 border-yellow-400 text-yellow-800 p-4 rounded-xl shadow-sm text-center">
                     <p class="font-bold text-sm md:text-base leading-relaxed">
-                        ⚠️ يرجى العلم أنه سيتم التواصل معك عبر
-                        <span class="text-green-600 font-extrabold">واتساب</span>
-                        لإتمام الدفع، وقيمة الخدمة هي
-                        <span class="text-green-600 font-extrabold">300 جنيه</span>،
-                        وذلك حتى
-                        <span class="text-red-600 font-extrabold">يتم الموافقة على نشر الخدمة.</span>
+                        ⚠️ يرجى العلم أنه سيتم التواصل معك عبر <span class="text-green-600 font-extrabold">واتساب</span>
+                        لإتمام الدفع، وقيمة الخدمة هي <span class="text-green-600 font-extrabold">300 جنيه</span>، وذلك
+                        حتى <span class="text-red-600 font-extrabold">يتم الموافقة على نشر الخدمة.</span>
                     </p>
-
                 </div>
 
                 <button type="submit"
@@ -515,6 +445,7 @@
         </form>
     </div>
 
+    <!-- زر المساعد العائم -->
     <div id="chat-button" onclick="toggleChat()"
         class="fixed bottom-6 right-6 w-16 h-16 rounded-2xl shadow-2xl flex items-center justify-center text-white cursor-pointer z-50 hover:scale-110 transition-transform">
         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -524,6 +455,7 @@
         </svg>
     </div>
 
+    <!-- نافذة المحادثة -->
     <div id="chat-widget"
         class="fixed bottom-24 right-6 w-[360px] md:w-[400px] h-[550px] rounded-[2rem] z-50 flex flex-col overflow-hidden bg-white">
         <div class="bg-blue-600 p-5 text-white flex justify-between items-center">
@@ -531,7 +463,7 @@
                 <div class="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
                 <span class="font-bold text-sm">المساعد الطبي الذكي</span>
             </div>
-            <div class="flex items-center ">
+            <div class="flex items-center">
                 <button onclick="clearChat()" class="text-white/70 hover:text-red-300 transition-colors"
                     title="مسح المحادثة">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -543,7 +475,6 @@
                 <button onclick="toggleChat()"
                     class="mr-[20px] text-white/70 hover:text-white text-2xl">&times;</button>
             </div>
-
         </div>
 
         <div id="chat-history" class="flex-1 p-5 overflow-y-auto space-y-4 bg-slate-50">
@@ -578,23 +509,17 @@
         </div>
     </div>
 
-
-
-
+    <!-- السكربتات البرمجية -->
     <script>
+        function openModal() {
+            document.getElementById("addModal").classList.remove("hidden");
+        }
 
-        function openModal() {
-            document.getElementById("addModal").classList.remove("hidden");
-        }
-        function openModal() {
-            document.getElementById("addModal").classList.remove("hidden");
-        }
         function closeModal() {
             document.getElementById("addModal").classList.add("hidden");
         }
-        let services = JSON.parse(localStorage.getItem("sahaty_v3")) || [
 
-        ];
+        let services = JSON.parse(localStorage.getItem("sahaty_v3")) || [];
 
         const symptomMapping = {
             وجع: "عظام",
@@ -609,7 +534,6 @@
             const grid = document.getElementById("cardsGrid");
             if (!grid) return;
 
-
             const approvedServices = data.filter(s => s.approved);
 
             if (approvedServices.length === 0) {
@@ -621,12 +545,10 @@
                 .map(
                     (s) => `
         <div class="bg-white p-10 card-radius shadow-xl border border-transparent hover:border-[#2563eb] transition-all relative group overflow-hidden">
-            
             <div class="flex items-center gap-2 mb-4">
                 <span class="bg-blue-50 text-[#2563eb] px-3 py-1 rounded-full text-[10px] font-black">${s.type}</span>
                 ${s.isVerified ? '<span class="text-blue-500">✅</span>' : ""}
-                <div class="w-2.5 h-2.5 rounded-full ${s.status === "online" ? "bg-blue-500 animate-pulse-blue" : "bg-gray-300"
-                        } ml-auto"></div>
+                <div class="w-2.5 h-2.5 rounded-full ${s.status === "online" ? "bg-blue-500 animate-pulse-blue" : "bg-gray-300"} ml-auto"></div>
             </div>
 
             <button onclick="toggleFav(${s.id})" class="absolute top-8 left-8 text-xl">
@@ -634,19 +556,18 @@
             </button>
 
             <h3 class="text-2xl font-black text-slate-800 mb-1">${s.name}</h3>
-            <h3 class="text-2xl font-black text-slate-800 mb-1">${s.address}</h3>
-            <p class="text-[#2563eb] font-bold text-lg mb-4">${s.spec}</p>
-            <p class="text-gray-400 text-sm mb-6">${s.desc}</p>
-            <p class="text-[#2563eb] font-bold text-lg mb-1">${s.spec}</p>
+            <p class="text-slate-500 text-sm mb-2">📍 ${s.address}</p>
+            <p class="text-[#2563eb] font-bold text-lg mb-2">${s.spec}</p>
+            <p class="text-gray-400 text-sm mb-4">${s.desc}</p>
             <p class="text-green-600 font-bold text-md mb-4">💰 ${s.price} جنيه</p>
+            
             <div class="mb-6">
                 <div class="flex justify-between text-[10px] mb-1 font-bold">
                     <span>ضغط المواعيد</span>
                     <span>${s.load}%</span>
                 </div>
                 <div class="w-full bg-gray-100 h-1.5 rounded-full">
-                    <div class="h-full ${s.load > 70 ? "bg-orange-500" : "bg-green-500"
-                        }" style="width:${s.load}%"></div>
+                    <div class="h-full ${s.load > 70 ? "bg-orange-500" : "bg-green-500"}" style="width:${s.load}%"></div>
                 </div>
             </div>
 
@@ -662,10 +583,7 @@
             <div id="box-${s.id}" class="hidden mb-4 bg-gray-50 p-3 rounded-xl">
                 <div class="max-h-24 overflow-y-auto mb-2 space-y-2 text-xs">
                     ${s.comments
-                            .map(
-                                (c) =>
-                                    `<div class="bg-white p-2 rounded border-r-4 border-[#2563eb]">${c}</div>`
-                            )
+                            .map((c) => `<div class="bg-white p-2 rounded border-r-4 border-[#2563eb]">${c}</div>`)
                             .join("")}
                 </div>
                 <div class="flex gap-2">
@@ -678,9 +596,8 @@
 
             <div class="grid grid-cols-2 gap-3">
                 <button class="bg-slate-900 text-white py-3 rounded-xl text-sm">طلب خدمة</button>
-                <a href="https://wa.me/${s.phone}" target="_blank"
-                   class="bg-[#2563eb] text-white py-3 rounded-xl text-sm text-center">
-                   واتساب
+                <a href="https://wa.me/${s.phone}" target="_blank" class="bg-[#2563eb] text-white py-3 rounded-xl text-sm text-center">
+                    واتساب
                 </a>
             </div>
         </div>
@@ -690,20 +607,14 @@
         }
 
         function runSearch() {
-            const query = document
-                .getElementById("searchInput")
-                .value.toLowerCase()
-                .trim();
-
+            const query = document.getElementById("searchInput").value.toLowerCase().trim();
             const emergency = document.getElementById("emergencyBar");
             const hint = document.getElementById("aiSuggestion");
 
             if (emergency) {
                 emergency.classList.toggle(
                     "hidden",
-                    !query.includes("نزيف") &&
-                    !query.includes("جلطة") &&
-                    !query.includes("أزمة")
+                    !query.includes("نزيف") && !query.includes("جلطة") && !query.includes("أزمة")
                 );
             }
 
@@ -733,9 +644,9 @@
 
             render(filtered);
         }
+
         function startVoice() {
-            const Recognition =
-                window.SpeechRecognition || window.webkitSpeechRecognition;
+            const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
             if (!Recognition) return alert("المتصفح لا يدعم الصوت");
 
@@ -743,8 +654,7 @@
             rec.lang = "ar-SA";
 
             rec.onresult = (e) => {
-                document.getElementById("searchInput").value =
-                    e.results[0][0].transcript;
+                document.getElementById("searchInput").value = e.results[0][0].transcript;
                 runSearch();
             };
 
@@ -804,13 +714,9 @@
 
             save();
             e.target.reset();
+            closeModal();
+            alert("تم إرسال الخدمة وبانتظار الموافقة عليها!");
         }
-
-        render();
-
-
-
-
 
         const medicalKnowledge = {
             unknownResponse: "عذراً، أنا أعمل على تطوير هذا حالياً وفهم المزيد من الأعراض الطبية المتعلقة بهذا الجزء.",
@@ -824,19 +730,10 @@
                 "الأذن": ["أذن", "اذن", "سمع", "وشوشة", "طنين", "التهاب"],
                 "الأسنان": ["أسنان", "اسنان", "ضرس", "لثة", "لثه", "وجع فم", "فك"],
                 "المفاصل": ["ركبة", "ركبه", "مفاصل", "روماتيزم", "يد", "رجل", "قدم", "كاحل"],
-                "الغدة": ["غدة", "غده", "درقية", "هرمونات", "خمول", "نشاط", "رقبة", "تعرق"],
-                "جلديه": ["جلد", "حكة", "حكه", "طفح", "حبوب", "اكزيما", "صدفية", "بشرة", "حساسية"],
-                "مسالك": ["بول", "كلى", "كلية", "حرقان", "مثانة", "بروستاتا", "ترسبات", "املاح"],
-                "نساء و توليد": ["دورة", "دوره", "حمل", "ولادة", "افرازات", "تكيس", "مبايض", "تأخر"],
-                "أطفال": ["طفل", "رضيع", "بيبي", "تطعيم", "حرارة طفل", "مغص أطفال", "نمو"],
-                "أنف وحنجرة": ["حلق", "لوز", "بلع", "بحة", "صوت", "جيوب أنفية", "زكام", "رشح"],
-                "نفسية": ["قلق", "توتر", "اكتئاب", "خوف", "رهاب", "أرق", "نوم", "نوبة هلع"],
-                "تغذية": ["سمنة", "نحافة", "دايت", "رجيم", "وزن", "فيتامينات", "بروتين", "أنيميا"],
-                "قلب وأوعية": ["نهجان", "خفقان", "رفرفة", "نبض سريع", "ألم ذراع أيسر", "ضغط مرتفع", "ضغط منخفض", "تصلب"],
-                "مخ وأعصاب": ["تنميل", "خدلان", "كهرباء", "فقدان توازن", "نسيان", "تشنج", "ثقل لسان", "رعشة"],
-                "عظام وإصابات": ["كسر", "رضة", "خلع", "تمزق", "رباط صليبي", "التواء", "ورم بمفصل", "سقوط"],
-                "جلدية تجميلية": ["حب شباب", "تصبغات", "كلف", "هالات", "مسام", "تساقط شعر", "فراغات", "أظافر"],
-                "نفسية أطفال": ["توحد", "فرط حركة", "تشتت", "تأخر نطق", "عدوانية", "صعوبات تعلم"]
+                "الغدة": ["غدة", "غده", "درقية", "درقيه", "هرمونات", "نشاط غدة", "خمول", "انتفاخ الرقبة", "ثيروكسين"],
+                "الجلدية": ["جلد", "حكة", "حبوب", "طفح", "بقع", "اكزيما", "حساسية جلد", "بشرة", "ثآليل", "صدفية"],
+                "النساء": ["حمل", "دورة", "حيض", "ولادة", "افرازات", "تكيس", "رحم", "مبايض", "نفاس"],
+                "المسالك": ["بول", "كلى", "كلية", "حصوة", "حرقة بول", "بروستاتا", "مثانة", "جنبي"]
             },
 
             responses: {
@@ -889,85 +786,31 @@
                     "• نصيحة: تقليل الحركة الزائدة على المفصل المصاب حالياً."
                 ],
                 "الغدة": [
-                    "• التشخيص: احتمال وجود اضطراب في وظائف الغدة الدرقية (خمول أو نشاط).",
+                    "• التشخيص: احتمال وجود اضطراب في وظائف الغدة الدرقية (خمول أو نشاط زائد).",
                     "• التخصص: غدد صماء وسكري.",
-                    "• التحاليل المطلوبة: T3, T4, TSH.",
-                    "• نصيحة: إذا كنت تعاني من تعرق مفرط أو خفقان، يرجى مراجعة المختص."
+                    "• التحاليل المطلوبة: T3, T4, TSH (بناءً على رؤية الطبيب).",
+                    "• نصيحة: إذا كنت تعاني من تغير مفاجئ في الوزن أو ضربات القلب، يفضل مراجعة المختص قريباً."
                 ],
-                "جلديه": [
-                    "• التشخيص: حساسية جلدية، أكزيما، أو عدوى سطحية.",
-                    "• التخصص: طب الأمراض الجلدية.",
-                    "• الأدوية المتاحة: كريمات ترطيب أو مضادات هيستامين (مثل كلاريتين).",
-                    "• نصيحة: تجنب استخدام أي كريمات كورتيزون دون وصفة طبية دقيقة."
-                ],
-                "مسالك": [
-                    "• التشخيص: التهاب مسالك بولية أو وجود ترسبات ملحية.",
-                    "• التخصص: جراحة المسالك البولية والكلى.",
-                    "• الأدوية المتاحة: مطهرات مجاري بولية وفوار (مثل يوريفين).",
-                    "• نصيحة: اشرب كميات كبيرة من الماء (أكثر من 3 لتر يومياً)."
-                ],
-                "نساء و توليد": [
-                    "• التشخيص: اضطرابات في الدورة الشهرية أو أعراض مرتبطة بالحمل.",
-                    "• التخصص: أمراض النساء والتوليد.",
-                    "• الأدوية المتاحة: مسكنات مخصصة (مثل بونستان فورت) أو مكملات غذائية.",
-                    "• نصيحة: يفضل إجراء سونار إذا تكرر الألم بشكل غير معتاد."
-                ],
-                "أطفال": [
-                    "• التشخيص: تقييم عام لصحة الطفل أو حالة عارضة.",
-                    "• التخصص: طب الأطفال وحديثي الولادة.",
-                    "• نصيحة: يرجى متابعة درجة الحرارة بدقة وعدم إعطاء أدوية قوية بدون حساب الجرعة بناءً على الوزن.",
-                    "• تنبيه: في حال وجود ضيق تنفس أو تشنجات، توجه لأقرب مستشفى أطفال."
-                ],
-                "أنف وحنجرة": [
-                    "• التشخيص: التهاب في الحلق أو الجيوب الأنفية.",
-                    "• التخصص: أنف وأذن وحنجرة.",
-                    "• الأدوية المتاحة: بخاخات أنف ملحية، أقراص استحلاب (ستربسلز)، أو مضادات حساسية.",
-                    "• نصيحة: الإكثار من السوائل الدافئة والابتعاد عن الروائح النفاذة والدخان."
-                ],
-                "نفسية": [
-                    "• التشخيص: أعراض توتر أو اضطراب في نمط النوم والحالة المزاجية.",
-                    "• التخصص: الطب النفسي والسلوكي.",
-                    "• نصيحة: ممارسة تمارين التنفس العميق والابتعاد عن مسببات التوتر، ومراجعة مختص إذا أثرت الحالة على حياتك اليومية."
-                ],
-                "تغذية": [
-                    "• التشخيص: حاجة لتنظيم النمط الغذائي أو نقص في العناصر الأساسية.",
-                    "• التخصص: التغذية العلاجية.",
-                    "• الإجراء: يفضل عمل تحليل صورة دم كاملة (CBC) ونسبة الحديد.",
-                    "• نصيحة: احرص على شرب الماء بانتظام وتقسيم الوجبات لـ 5 وجبات صغيرة."
-                ],
-                "قلب وأوعية": [
-                    "• التشخيص المبدئي: اضطراب في الدورة الدموية أو كهرباء القلب.",
-                    "• التخصص: أمراض القلب والقسطرة.",
-                    "• الفحوصات: تخطيط قلب (ECG) أو قياس الضغط لمدة 3 أيام.",
-                    "• تنبيه: إذا صاحب الألم ضيق تنفس شديد وعرق بارد، توجه للطوارئ فوراً."
-                ],
-                "مخ وأعصاب": [
-                    "• التشخيص المبدئي: خلل في الإشارات العصبية أو نقص فيتامينات (مثل B12).",
-                    "• التخصص: أمراض المخ والأعصاب.",
-                    "• الأدوية المتاحة: مكملات الأعصاب (مثل نيوروروبين) أو مسكنات عصبية (بإشراف طبي).",
-                    "• نصيحة: تجنب الإجهاد الذهني الطويل والسهر."
-                ],
-                "عظام وإصابات": [
-                    "• التشخيص المبدئي: إصابة في الأنسجة الرابطة أو اشتباه شرخ/كسر.",
-                    "• التخصص: جراحة العظام والإصابات.",
-                    "• الإسعاف الأولي: وضع ثلج (كمادات باردة) ورفع العضو المصاب وعدم تحريكه.",
-                    "• إجراء مطلوب: عمل أشعة سينية (X-Ray) للتأكد من سلامة العظم."
-                ],
-                "جلدية تجميلية": [
-                    "• التشخيص المبدئي: تهيج بشرة أو ضعف في بصيلات الشعر.",
+                "الجلدية": [
+                    "• التشخيص: قد تكون حساسية جلدية، اكزيما، أو عدوى سطحية.",
                     "• التخصص: الأمراض الجلدية والتجميل.",
-                    "• الروتين المقترح: استخدام واقي شمس مناسب، واستخدام شامبو خالي من السلفات.",
-                    "• نصيحة: شرب الماء بكثرة يؤثر مباشرة على نضارة البشرة وصحة الشعر."
+                    "• الأدوية المتاحة: كريمات مرطبة أو مضادة للحساسية (مثل فينيستيل أو إليكا تحت الإشراف).",
+                    "• نصيحة: تجنب استخدام العطور أو المنظفات القوية على المنطقة المصابة."
                 ],
-                "نفسية أطفال": [
-                    "• التشخيص المبدئي: اضطراب نمائي أو سلوكي يحتاج تقييماً.",
-                    "• التخصص: طب نفسي أطفال أو تعديل سلوك.",
-                    "• الخطوة القادمة: عمل اختبار ذكاء أو اختبار کارز حسب رؤية المختص.",
-                    "• نصيحة: تقليل ساعات الشاشات (تلفاز/موبايل) بشكل قطعي في هذه المرحلة."
+                "النساء": [
+                    "• التشخيص: اضطرابات هرمونية، أعراض حمل، أو التهابات نسائية.",
+                    "• التخصص: النساء والتوليد.",
+                    "• الأدوية المتاحة: مسكنات لآلام الدورة (مثل بونستان فورت) ومكملات (بناءً على الحالة).",
+                    "• نصيحة: في حال وجود آلام شديدة غير منتظمة أو نزيف، يرجى مراجعة الطبيبة فوراً."
+                ],
+                "المسالك": [
+                    "• التشخيص: احتمال وجود التهاب في المسالك البولية أو ترسبات أملاح.",
+                    "• التخصص: جراحة المسالك البولية والكلى.",
+                    "• الأدوية المتاحة: فوار (مثل يوريفين) ومسكنات للكلى.",
+                    "• نصيحة: اشرب كميات كافية من الماء (لا تقل عن 2-3 لتر يومياً)."
                 ]
             }
         };
-
 
         function toggleChat() {
             document.getElementById('chat-widget').classList.toggle('open');
@@ -1008,8 +851,13 @@
                 medicalKnowledge.responses[foundCategory] :
                 [medicalKnowledge.unknownResponse];
 
+            if (foundCategory) {
+                const diagnosisLine = medicalKnowledge.responses[foundCategory][0].replace('• التشخيص: ', '');
+                addAlertFromChat(foundCategory, diagnosisLine);
+            }
+
             for (let reply of replies) {
-                await new Promise(r => setTimeout(r, 700));
+                await new Promise(r => setTimeout(r, 600));
                 addMsg(reply, false);
             }
         }
@@ -1049,7 +897,7 @@
             box.classList.remove('hidden');
             box.innerHTML = `<div class="bg-white border p-6 rounded-3xl shadow-sm"><div class="skeleton h-4 w-full mb-3 rounded"></div><div class="skeleton h-4 w-2/3 rounded"></div></div>`;
             setTimeout(() => {
-                box.innerHTML = `<div class="bg-blue-50 p-6 rounded-3xl text-blue-700 font-bold border border-blue-100 shadow-sm animate-pulse">✓ تم التحليل بنجاح: بناءً على البيانات، المؤشرات طبيعية. يرجى المتابعة مع طبيبك المختص.</div>`;
+                box.innerHTML = `<div class="bg-blue-50 p-6 rounded-3xl text-blue-700 font-bold border border-blue-100 shadow-sm">✓ تم التحليل بنجاح: بناءً على البيانات، المؤشرات طبيعية. يرجى المتابعة مع طبيبك المختص.</div>`;
             }, 2500);
         }
 
@@ -1060,7 +908,6 @@
                 addMsg("تم مسح المحادثة. كيف يمكنني مساعدتك الآن؟", false);
             }
         }
-        window.onload = () => { showPage('home'); };
 
         function toggleMenu() {
             if (window.innerWidth >= 1024) return;
@@ -1077,8 +924,68 @@
             } else {
                 chatBtn.classList.add("hidden");
             }
-
         }
+
+        // إدارة التنبيهات
+        let userAlerts = JSON.parse(localStorage.getItem('nabd_alerts')) || [];
+
+        function renderAlerts() {
+            const listContainer = document.getElementById('alerts-list');
+            const badge = document.getElementById('alert-count-badge');
+
+            if (!listContainer) return;
+
+            if (userAlerts.length === 0) {
+                listContainer.innerHTML = `<p id="no-alerts-msg" class="text-slate-400 text-sm">لا يوجد تنبيهات حالياً</p>`;
+                if (badge) badge.innerText = "0";
+                return;
+            }
+
+            if (badge) badge.innerText = userAlerts.length;
+
+            listContainer.innerHTML = userAlerts.map(alert => `
+        <div id="alert-item-${alert.id}" class="flex items-center justify-between bg-orange-50 border border-orange-200 p-3 rounded-xl">
+            <div class="flex items-center gap-2">
+                <span class="text-orange-600 text-lg">⚠️</span>
+                <div>
+                    <p class="font-bold text-slate-800 text-sm">${alert.title}</p>
+                    <p class="text-xs text-slate-500">${alert.category} - ${alert.date}</p>
+                </div>
+            </div>
+            <button onclick="removeAlert(${alert.id})" 
+                    class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-lg text-xs font-bold transition-all shadow-sm">
+                تم ✔
+            </button>
+        </div>
+    `).join('');
+        }
+
+        function removeAlert(id) {
+            userAlerts = userAlerts.filter(a => a.id !== id);
+            localStorage.setItem('nabd_alerts', JSON.stringify(userAlerts));
+            renderAlerts();
+        }
+
+        function addAlertFromChat(category, diagnosisText) {
+            const exists = userAlerts.some(a => a.category === category);
+            if (!exists) {
+                const newAlert = {
+                    id: Date.now(),
+                    category: category,
+                    title: diagnosisText,
+                    date: new Date().toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' })
+                };
+                userAlerts.unshift(newAlert);
+                localStorage.setItem('nabd_alerts', JSON.stringify(userAlerts));
+                renderAlerts();
+            }
+        }
+
+        window.onload = () => {
+            showPage('home');
+            render();
+            renderAlerts();
+        };
     </script>
 </body>
 
